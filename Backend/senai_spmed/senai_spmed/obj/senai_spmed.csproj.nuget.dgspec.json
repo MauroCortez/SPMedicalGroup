@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mauro\\Desktop\\SP Medical Group\\API\\senai_spmed\\senai_spmed\\senai_spmed.csproj": {}
+    "C:\\Users\\mauro\\Desktop\\SP Medical Group\\Backend\\senai_spmed\\senai_spmed\\senai_spmed.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mauro\\Desktop\\SP Medical Group\\API\\senai_spmed\\senai_spmed\\senai_spmed.csproj": {
+    "C:\\Users\\mauro\\Desktop\\SP Medical Group\\Backend\\senai_spmed\\senai_spmed\\senai_spmed.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mauro\\Desktop\\SP Medical Group\\API\\senai_spmed\\senai_spmed\\senai_spmed.csproj",
+        "projectUniqueName": "C:\\Users\\mauro\\Desktop\\SP Medical Group\\Backend\\senai_spmed\\senai_spmed\\senai_spmed.csproj",
         "projectName": "senai_spmed",
-        "projectPath": "C:\\Users\\mauro\\Desktop\\SP Medical Group\\API\\senai_spmed\\senai_spmed\\senai_spmed.csproj",
+        "projectPath": "C:\\Users\\mauro\\Desktop\\SP Medical Group\\Backend\\senai_spmed\\senai_spmed\\senai_spmed.csproj",
         "packagesPath": "C:\\Users\\mauro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mauro\\Desktop\\SP Medical Group\\API\\senai_spmed\\senai_spmed\\obj\\",
+        "outputPath": "C:\\Users\\mauro\\Desktop\\SP Medical Group\\Backend\\senai_spmed\\senai_spmed\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mauro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.8, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.8, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.8, )"
@@ -53,6 +61,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.8, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.1.4, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.12.0, )"
             }
           },
           "imports": [

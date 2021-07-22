@@ -1,4 +1,5 @@
-﻿using senai_spmed.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using senai_spmed.Contexts;
 using senai_spmed.Domains;
 using senai_spmed.Interfaces;
 using System;
@@ -84,14 +85,34 @@ namespace senai_spmed.Repositories
             ctx.SaveChanges();
         }
 
-        public List<Consultum> ListarMeus(int idUsuario)
+        public List<Consultum> ListarMeusMedico(int idUsuario)
         {
-            throw new NotImplementedException();
+            return ctx.Consulta
+                .Include("IdMedicoNavigation")
+                .Include(i => i.IdPacienteNavigation)
+                .Include(i => i.IdSituacaoNavigation)
+                .Where(a => a.IdMedicoNavigation.IdUsuario == idUsuario || a.IdPacienteNavigation.IdUsuario == idUsuario)
+                .ToList();
+        }
+
+        public List<Consultum> ListarMeusPaciente(int idUsuario)
+        {
+            return ctx.Consulta
+                .Include("IdPacienteNavigation")
+                .Include(i => i.IdMedicoNavigation)
+                .Include(i => i.IdSituacaoNavigation)
+                .Where(a => a.IdPacienteNavigation.IdUsuario == idUsuario || a.IdMedicoNavigation.IdUsuario == idUsuario)
+                .ToList();
         }
 
         public List<Consultum> ListarTodos()
         {
-            return ctx.Consulta.ToList();
+
+            return ctx.Consulta
+                .Include(i => i.IdMedicoNavigation)
+                .Include(i => i.IdPacienteNavigation)
+                .Include(i => i.IdSituacaoNavigation)
+                .ToList();
         }
     }
 }

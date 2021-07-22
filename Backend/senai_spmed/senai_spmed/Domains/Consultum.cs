@@ -10,7 +10,7 @@ namespace senai_spmed.Domains
         public int IdConsulta { get; set; }
         public int? IdMedico { get; set; }
         public int? IdPaciente { get; set; }
-        public int? IdSituacao { get; set; }
+        public int IdSituacao { get; set; }
         public int? IdEspecialidade { get; set; }
         public DateTime DataConsulta { get; set; }
         public DateTime HoraConsulta { get; set; }

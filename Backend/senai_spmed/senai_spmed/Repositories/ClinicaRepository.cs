@@ -18,16 +18,6 @@ namespace senai_spmed.Repositories
         {
             Clinica clinicaBuscada = BuscarPorId(idClinica);
 
-            if (clinicaAtualizada.HorarioAbertura = TimeZoneInfo.)
-            {
-                clinicaBuscada.HorarioAbertura = clinicaAtualizada.HorarioAbertura;
-            }
-
-            if (clinicaAtualizada.HorarioFechamento = TimeZoneInfo.)
-            {
-                clinicaBuscada.HorarioFechamento = clinicaAtualizada.HorarioFechamento;
-            }
-
             if (clinicaAtualizada.NomeFantasia != null)
             {
                 clinicaBuscada.NomeFantasia = clinicaAtualizada.NomeFantasia;
