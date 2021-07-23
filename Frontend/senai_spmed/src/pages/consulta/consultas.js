@@ -15,7 +15,8 @@ export default class Consultas extends Component{
       idSituacao : 0,
       listaMedicos : [],
       listaPacientes : [],
-      listaSituacoes : []
+      listaSituacoes : [],
+      // listaEspecialidade : []
     };
   };
 
@@ -101,11 +102,32 @@ export default class Consultas extends Component{
     .catch(erro => console.log(erro));
   };
 
+  // buscarEspecialidades = () => {
+  //   fetch('http://localhost:5000/api/especialdades', {
+  //     headers : {
+  //       'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
+  //     }
+  //   })
+
+  //   .then(resposta => {
+  //     if (resposta.status !== 200) {
+  //       throw Error();
+  //     }
+
+  //     return resposta.json();
+  //   })
+
+  //   .then(resposta => this.setState({ listaEspecialidade : resposta }))
+
+  //   .catch(erro => console.log(erro));
+  // };
+
   componentDidMount(){
     this.buscarConsultas();
     this.buscarMedicos();
     this.buscarPacientes();
     this.buscarSituacoes();
+    // this.buscarEspecialidades();
   };
 
   cadastrarAtendimento = (event) => {
@@ -117,6 +139,7 @@ export default class Consultas extends Component{
       descricao                 :     this.state.descricao,
       dataConsulta              :     this.state.data + 'T' + this.state.hora,
       idSituacao                :     this.state.idSituacao
+      // idEspecialidade           :     this.state.idEspecialidade
     };
 
     axios.post('http://localhost:5000/api/consultas', consulta, {
@@ -158,6 +181,7 @@ export default class Consultas extends Component{
                 <th>Médico</th>
                 <th>Descrição</th>
                 <th>Data da Consulta</th>
+                {/* <th>Especialidade</th> */}
                 <th>Situação</th>
               </tr>
             </thead>
@@ -170,15 +194,16 @@ export default class Consultas extends Component{
 
                     <tr key={consulta.idConsulta}>
                       <td>{consulta.idConsulta}</td>
-                      {/*<td>{consulta.IdPacienteNavigation.nomePaciente}</td>*/}
-                      {/*<td>{consulta.IdMedicoNavigation.nomeMedico}</td>*/}
+                      <td>{consulta.idPacienteNavigation.nomePaciente}</td>
+                      <td>{consulta.idMedicoNavigation.nomeMedico}</td>
                       <td>{consulta.descricao}</td>
                       <td>{Intl.DateTimeFormat("pt-BR", {
                         year: 'numeric', month: 'numeric', day: 'numeric',
                         hour: 'numeric', minute: 'numeric',
                         hour12: false
                       }).format(new Date(consulta.dataConsulta))}</td>
-                      <td>{consulta.idSituacaoNavigation.nomeSituacao}</td>
+                      {/* <td>{consulta.idEspecialidadeNavigation.nomeEspecialidade}</td> */}
+                      <td>{consulta.idSituacaoNavigation.situacao1}</td>
                     </tr>
 
                   )
@@ -191,7 +216,7 @@ export default class Consultas extends Component{
         </section>
 
         <section>
-          <h2>Cadastro de Atendimentos</h2>
+          <h2>Cadastro de Consultas</h2>
 
           {/* Formulário de cadastro */}
 
@@ -199,7 +224,7 @@ export default class Consultas extends Component{
 
         
           <select
-              name="IdPaciente"
+              name="idPaciente"
               value={this.state.idPaciente}
               onChange={this.atualizaStateCampo}
             >
@@ -224,15 +249,15 @@ export default class Consultas extends Component{
             /> */}
 
             <select
-              name="IdMedico"
+              name="idMedico"
               value={this.state.idMedico}
               onChange={this.atualizaStateCampo}
             >
 
-              <option value="0">Selecione o Medico que fará a consultas</option>
+              <option value="0">Selecione o Medico que fará a consulta</option>
 
               {
-                this.state.listaConsultas.map( (medico) => {
+                this.state.listaMedicos.map( (medico) => {
                   return(
                     <option key={medico.idMedico} value={medico.idMedico}>{medico.nomeMedico}</option>
                   )
@@ -259,6 +284,7 @@ export default class Consultas extends Component{
               type="text"
               name="descricao"
               value={this.state.descricao}
+              placeholder="Descrição"
               onChange={this.atualizaStateCampo}
             />
 
@@ -279,7 +305,7 @@ export default class Consultas extends Component{
             />
 
               <select
-              name="IdSituacao"
+              name="idSituacao"
               value={this.state.idSituacao}
               onChange={this.atualizaStateCampo}
             >
@@ -289,7 +315,7 @@ export default class Consultas extends Component{
               {
                 this.state.listaSituacoes.map( (situacao) => {
                   return(
-                    <option key={situacao.idSituacao} value={situacao.idSituacao}>{situacao.nomeSituacao}</option>
+                    <option key={situacao.idSituacao} value={situacao.idSituacao}>{situacao.situacao1}</option>
                   )
                 } )
               }

@@ -10,9 +10,9 @@ export default class MinhasConsultas extends Component{
   };
 
   buscarConsultas = () => {
-    console.log('Esta função traz todos os atendimentos.')
+    console.log('Esta função traz todas as consultas.')
 
-    fetch('http://localhost:5000/api/atendimentos/meus', {
+    fetch('http://localhost:5000/api​/Consultas​/meus', {
       headers : {
         'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
       }
@@ -47,11 +47,11 @@ export default class MinhasConsultas extends Component{
 
             <thead>
               <tr>
-                <th>#</th>
-                <th>Pet</th>
-                <th>Veterinário</th>
+              <th>#</th>
+                <th>Paciente</th>
+                <th>Médico</th>
                 <th>Descrição</th>
-                <th>Data de Atendimento</th>
+                <th>Data da Consulta</th>
                 <th>Situação</th>
               </tr>
             </thead>
@@ -59,7 +59,7 @@ export default class MinhasConsultas extends Component{
             <tbody>
 
               {
-                this.state.listaConsulta.map( (consulta) => {
+                this.state.listaConsultas.map( (consulta) => {
                   return(
 
                     <tr key={consulta.idConsulta}>
@@ -72,7 +72,8 @@ export default class MinhasConsultas extends Component{
                         hour: 'numeric', minute: 'numeric',
                         hour12: false
                       }).format(new Date(consulta.dataConsulta))}</td>
-                      <td>{consulta.idSituacaoNavigation.nomeSituacao}</td>
+                      {/* <td>{consulta.idEspecialidadeNavigation.nomeEspecialidade}</td> */}
+                      <td>{consulta.idSituacaoNavigation.situacao1}</td>
                     </tr>
 
                   )
@@ -84,9 +85,6 @@ export default class MinhasConsultas extends Component{
           </table>
         </section>
 
-        <section>
-          <h2>Cadastro de Atendimentos</h2>
-        </section>
       </div>
     )
   }

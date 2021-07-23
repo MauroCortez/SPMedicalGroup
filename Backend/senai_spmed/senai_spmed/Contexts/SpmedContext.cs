@@ -32,7 +32,7 @@ namespace senai_spmed.Contexts
             if (!optionsBuilder.IsConfigured)
             {
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-M4B6U15; Initial Catalog= senai_spmed; user Id=sa; pwd=mbc159753123;");
+                optionsBuilder.UseSqlServer("Data Source=LAB08DESK701\\SQLEXPRESS; Initial Catalog=senai_spmed; user id=sa; pwd=sa132;");
             }
         }
 

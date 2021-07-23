@@ -41,7 +41,7 @@ const routing = (
       <Switch>
         <Route exact path="/" component={App} />
         <PermissaoAdm path="/consultas" component={Consultas} />
-        <Route path="/minhasconsultas" component={Minhasconsultas} />
+        <PermissaoUser path="/minhasconsultas" component={Minhasconsultas} />
         <Route path="/login" component={Login} />
         <Route exact path="/notfound" component={NotFound} />
         <Redirect to="/notfound" />

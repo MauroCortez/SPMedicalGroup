@@ -90,6 +90,7 @@ namespace senai_spmed.Repositories
             return ctx.Consulta
                 .Include("IdMedicoNavigation")
                 .Include(i => i.IdPacienteNavigation)
+                .Include(i => i.IdEspecialidadeNavigation)
                 .Include(i => i.IdSituacaoNavigation)
                 .Where(a => a.IdMedicoNavigation.IdUsuario == idUsuario || a.IdPacienteNavigation.IdUsuario == idUsuario)
                 .ToList();
@@ -101,6 +102,7 @@ namespace senai_spmed.Repositories
             return ctx.Consulta
                 .Include(i => i.IdMedicoNavigation)
                 .Include(i => i.IdPacienteNavigation)
+                .Include(i => i.IdEspecialidadeNavigation)
                 .Include(i => i.IdSituacaoNavigation)
                 .ToList();
         }

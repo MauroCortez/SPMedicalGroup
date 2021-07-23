@@ -7534,19 +7534,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mauro\\.nuget\\packages\\": {}
+    "C:\\Users\\45763910893\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mauro\\Desktop\\SP Medical Group\\Backend\\senai_spmed\\senai_spmed\\senai_spmed.csproj",
+      "projectUniqueName": "C:\\Users\\45763910893\\Desktop\\SPMedicalGroup\\Backend\\senai_spmed\\senai_spmed\\senai_spmed.csproj",
       "projectName": "senai_spmed",
-      "projectPath": "C:\\Users\\mauro\\Desktop\\SP Medical Group\\Backend\\senai_spmed\\senai_spmed\\senai_spmed.csproj",
-      "packagesPath": "C:\\Users\\mauro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mauro\\Desktop\\SP Medical Group\\Backend\\senai_spmed\\senai_spmed\\obj\\",
+      "projectPath": "C:\\Users\\45763910893\\Desktop\\SPMedicalGroup\\Backend\\senai_spmed\\senai_spmed\\senai_spmed.csproj",
+      "packagesPath": "C:\\Users\\45763910893\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\45763910893\\Desktop\\SPMedicalGroup\\Backend\\senai_spmed\\senai_spmed\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mauro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\45763910893\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7621,7 +7621,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
