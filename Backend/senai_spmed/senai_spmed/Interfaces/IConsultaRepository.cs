@@ -19,9 +19,7 @@ namespace senai_spmed.Interfaces
 
         void Deletar(int idConsulta);
 
-        List<Consultum> ListarMeusMedico(int idUsuario);
-
-        List<Consultum> ListarMeusPaciente(int idUsuario);
+        List<Consultum> ListarMeus(int idUsuario);
 
         void AlterarStatus(int idConsulta, int idNovaSituacao);
     }

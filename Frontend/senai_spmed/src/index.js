@@ -7,9 +7,9 @@ import './index.css';
 
 import App from './pages/home/App';
 import Consultas from './pages/consulta/consultas';
-import MedConsultas from './pages/consulta/consultamed';
+import Minhasconsultas from './pages/consulta/minhasconsultas';
 import Login from './pages/login/login';
-import NotFound from './pages/notFound/notFound';
+import NotFound from './pages/notFond/notFound';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -23,33 +23,25 @@ const PermissaoAdm = ({ component : Component }) => (
   />
 )
 
-const PermissaoMed = ({ component : Component }) => (
+
+const PermissaoUser = ({ component : Component }) => (
   <Route 
     render = { props => 
-      usuarioAutenticado() && parseJwt().role === '2' ?
+      usuarioAutenticado() && (parseJwt().role === '2' || parseJwt().role === '3') ?
       <Component {...props} /> : 
       <Redirect to="/login" />
     }  
   />
 )
 
-const PermissaoPac = ({ component : Component }) => (
-  <Route 
-    render = { props => 
-      usuarioAutenticado() && parseJwt().role === '3' ?
-      <Component {...props} /> : 
-      <Redirect to="/login" />
-    }  
-  />
-)
+
 
 const routing = (
   <Router>
       <Switch>
         <Route exact path="/" component={App} />
         <PermissaoAdm path="/consultas" component={Consultas} />
-        <PermissaoMed path="/consultamed" component={MedConsultas} />
-        <PermissaoPac path="/consultapac" component={PacConsultas} />
+        <Route path="/minhasconsultas" component={Minhasconsultas} />
         <Route path="/login" component={Login} />
         <Route exact path="/notfound" component={NotFound} />
         <Redirect to="/notfound" />

@@ -107,6 +107,8 @@ namespace senai_spmed
 
             app.UseAuthorization();
 
+            app.UseCors("CorsPolicy");
+
             app.UseEndpoints(endpoints =>
             {
                 // Define o mapeamento dos Controllers

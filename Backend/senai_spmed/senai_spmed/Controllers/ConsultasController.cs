@@ -7,7 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authorization;
 
 namespace senai_spmed.Controllers
 {
@@ -109,5 +110,22 @@ namespace senai_spmed.Controllers
             }
         }
 
+
+        [Authorize(Roles = "2, 3")]
+        [HttpGet("meus")]
+        public IActionResult ListarMeus()
+        {
+            try
+            {
+                int idUsuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+
+                return Ok(_consultaRepository.ListarMeus(idUsuario));
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+
+            }
+        }
     }
 }
